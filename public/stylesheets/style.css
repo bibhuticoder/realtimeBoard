@@ -1,0 +1,155 @@
+body{
+    
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+.cnvs{
+  
+  
+    position: absolute;
+    top: 45;
+    left: 0; 
+    
+   
+}
+
+#txtDialog{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border-style: soid;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    z-index: 10;
+    text-align:left;
+    font-family:sans-serif;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 2px gray;
+}
+
+#txtDialog > button, #txtDialog > select{
+    border-style: solid;
+    border-width: 1px;
+    border-color: saddlebrown;
+    background-color: whitesmoke;    
+    color: saddlebrown; 
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    outline: none;
+}
+
+#txtDialog button:hover{
+    
+    border-color: saddlebrown;
+    border-color: saddlebrown;
+    background-color: saddlebrown;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+#txtDialog input{
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: saddlebrown;
+    background-color: whitesmoke;    
+    color: black; 
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    outline: none;
+    font-weight:lighter;
+}
+
+.color{
+
+    width: 15px;
+    height: 15px;
+    margin: 1px;
+    border-radius: 10px;
+    float: left; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: dimgray;
+}
+
+.color:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#currentColor{
+    
+    width: 35px;
+    height: 35px;
+    border-radius: 17px;
+    background-color: black;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 5px;
+   
+}
+
+#colorContainer{
+     float: right;
+     margin-top: -3px;
+}
+
+.boardBtn{
+    width: auto;
+    height: auto;
+    background-color: white;
+    color: saddlebrown;
+    font-size: 20px;
+    border-style: none;
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 2.5px;
+    
+}
+
+.boardBtn:hover{   
+    cursor: pointer;
+    color:black;
+   
+}
+
+#toolWidth{
+    
+    width: 60px;
+    padding-left: 0px;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;    
+    float: left;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.seperator{
+    width: 2px;
+    height: 90%;
+    background-color: gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+}
+
+#boardToolContainer{
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 40px;
+    background-color: white;    
+    padding: 5px;
+    box-shadow: 1px 1px 5px 1px gray;
+      
+}
+

@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Realtime Board</title>
+        
+        <!-- Jquery -->
+        
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="/javascripts/script.js"></script>
+        
+        
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+        
+
+    </head> 
+    
+    <body>
+           
+             <div id="boardToolContainer"> 
+                 <div id="pencil" title="Brush" class="boardBtn tool"><i class="fa fa-paint-brush"></i></div>
+                 <div id="eraser" title="Eraser" class="boardBtn tool"><i class="fa fa-eraser"></i></div>
+                 <div id="clear" title="Clear Board" class="boardBtn"><i class="fa fa-refresh"></i></div>
+                 <div id="text" title="Text" class="boardBtn tool"><i class="fa fa-font"></i></div>
+                 <div id="bucket" title="Paint Bucket" class="boardBtn tool" hidden="hidden">F</div>
+                 
+                 <div class="seperator"></div>
+                 
+                 <div id="line" title="Line" class="boardBtn tool">/</div>
+                 <div id="rectangle" title="Rectangle" class="boardBtn tool"><i class="fa fa-object-ungroup"></i></div>
+                 <div id="ellipse" title="Ellipse" class="boardBtn tool"><i class="fa fa-genderless"></i></div>
+                 
+                 <div id="select" title="Select" class="boardBtn tool">S</div>
+                 
+                <div class="seperator"></div> 
+                 
+                <select id="toolWidth" class="form-control">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                </select>
+                    
+                <div class="seperator"></div><div class="seperator"></div>
+                <a target="_blank" href="" id="save" title="Save to local storage" class="boardBtn"><i class="fa fa-floppy-o"></i></a>
+             
+                <div id="colorContainer"> 
+                     <table>
+                        <tr>
+                            <td rowspan="2"><div id="currentColor"></div></td>
+                            
+                            <td> <div class="color" style="background-color:black"> </div> </td>
+                            <td> <div  class="color" style="background-color:white"> </div></td>
+                            <td> <div  class="color" style="background-color:red"> </div></td>
+                            <td> <div  class="color" style="background-color:blue"> </div></td>
+                            <td> <div  class="color" style="background-color:green"> </div></td>
+                            <td> <div  class="color" style="background-color:crimson"> </div></td>
+                            <td> <div  class="color" style="background-color:skyblue"> </div></td>
+                            <td> <div  class="color" style="background-color:deepskyblue"> </div></td>
+                            <td> <div  class="color" style="background-color:purple"> </div></td>
+                            <td> <div  class="color" style="background-color:slateblue"> </div></td>
+                            <td> <div  class="color" style="background-color:brown"> </div></td>
+                            <td> <div  class="color" style="background-color:saddlebrown"> </div></td>
+                            <td> <div  class="color" style="background-color:dodgerblue"> </div></td>
+                            <td> <div  class="color" style="background-color:olive"> </div></td>
+                            <td> <div  class="color" style="background-color:forestgreen"> </div></td>
+                            <td> <div  class="color" style="background-color:ornage"> </div></td>
+                            <td> <div  class="color" style="background-color:gold"> </div></td>
+
+                        </tr>
+
+                         <tr>
+                            <td> <div class="color" style="background-color:gray"></div></td>
+                            <td> <div class="color" style="background-color:darkgray"></div></td>
+                            <td> <div  class="color" style="background-color:whitesmoke"> </div></td>
+                            <td> <div  class="color" style="background-color:azure"> </div></td>
+                            <td> <div  class="color" style="background-color:pink"> </div></td>
+                            <td> <div  class="color" style="background-color:burlywood"> </div></td>
+                            <td> <div  class="color" style="background-color:coral"> </div></td>
+                            <td> <div  class="color" style="background-color:chocolate"> </div></td>
+                            <td> <div  class="color" style="background-color:firebrick"> </div></td>
+                            <td> <div  class="color" style="background-color:slateblue"> </div></td>
+                            <td> <div  class="color" style="background-color:darkorange"> </div></td>
+                            <td> <div  class="color" style="background-color:darksalmon"> </div></td>
+                            <td> <div  class="color" style="background-color:deeppink"> </div></td>
+                            <td> <div  class="color" style="background-color:violet"> </div></td>
+                            <td> <div  class="color" style="background-color:darkturquoise"> </div></td>
+                            <td> <div  class="color" style="background-color:turquoise"> </div></td>
+                            <td> <div  class="color" style="background-color:cornflowerblue"> </div></td>
+
+                        </tr>
+                     </table>
+                </div>
+
+             </div>
+            
+             <div>
+                <canvas id="layer" class="cnvs"  style="z-index:0; cursor:crosshair;"></canvas>
+                <canvas id="canvas" class="cnvs"  style="z-index:1;background-color:white;"></canvas>
+             </div>
+                             
+    <div id="txtDialog">
+        
+        <input type="text" id="txtValue" placeholder="Enter text here" />
+                
+        <select id="txtFontFamily">
+            <option>sans serif</option>
+            <option>serif</option>
+            <option>fantasy</option>
+            <option selected>cursive</option>
+            <option>monoscape</option>
+        </select>
+        <select id="txtFontSize">
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option selected>24</option>
+            <option>28</option>
+            <option>30</option>
+            <option>32</option>
+            <option>34</option>
+            <option>36</option>
+            <option>48</option>
+            <option>72</option>
+        </select>
+        <select id="txtFontStyle">
+            <option>Bold</option>
+            <option>Italic</option>            
+            <option selected>Normal</option>
+            
+        </select>
+                
+        <button id="txtCancel">Cancel</button>
+        <button id="txtInsert">Insert</button>
+        
+    </div>
+      
+    </body>
+
+</html>
+

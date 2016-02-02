@@ -1,0 +1,39 @@
+<html>
+
+<title>Realtime Snake</title>
+<head>
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
+</head>
+   
+<body>
+
+    <div class="container" style="text-align:center">
+        
+        <br>
+        <br>
+        <br>
+        
+        <p class="lead">
+            Realtime Snake 
+        </p>
+        
+        <br>
+        
+        <form method="post" action="/play">
+            <input type="text" class="form-control loginText" placeholder="Enter your name here...." name="snakeName" style="width: 500px; margin: 0 auto" autocomplete="off" id="username" required />
+            
+            <br>
+                        <input type="text" class="form-control loginText" placeholder="Enter the room name" name="roomName" style="width: 500px; margin: 0 auto" autocomplete="off" id="roomName" required />
+            <br>
+            <button type="submit" class="btn btn-danger btn-lg loginName"> <span class="glyphicon glyphicon-chevron-left"></span> Start Game <span class="glyphicon glyphicon-chevron-right"></span> </button>
+    
+        </form>
+        
+        
+    </div>
+</body>
+</html>
