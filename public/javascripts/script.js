@@ -18,7 +18,7 @@ $(document).ready(function(){
     
     $(".cnvs").mousedown(function(event){
         
-        makeMouseDown();
+        makeMouseDown(event);
         
     })
     
@@ -40,9 +40,9 @@ $(document).ready(function(){
 
     
     //text controls///////////////////////////////   
-    $("#txtInsert").click(function(){        
+    $("#txtInsert").click(function(e){        
            
-       insertText();        
+       insertText(e);        
       
     });
     
@@ -60,7 +60,7 @@ $(document).ready(function(){
     });
     //////////////////////////////////////////////
     
-    function insertText(){
+    function insertText(event){
          $("#txtDialog").hide();                
         lCtx.font = $("#txtFontStyle").val() + " " + $("#txtFontSize").val() + "px " +         $("#txtFontFamily").val();
         ctx.font =$("#txtFontStyle").val() + " " + $("#txtFontSize").val() + "px " + $("#txtFontFamily").val();
@@ -79,10 +79,7 @@ $(document).ready(function(){
        socket.emit('clear');
         
     });
-    
-    $("#floodFill").click(function(){
-       floodFill(getMousePos.x, getMousePos.y,Event); 
-    });
+        
     
     $(".color").click(function(){
         
@@ -112,10 +109,10 @@ $(document).ready(function(){
                 
     }
     
-    function makeMouseDown(){
+    function makeMouseDown(event){
         mouseDown = true;
-        iX =getMousePos(canvas, event) .x;
-        iY =getMousePos(canvas, event) .y;
+        iX = getMousePos(canvas, event).x;
+        iY = getMousePos(canvas, event).y;
         
         if(tool === 'text'){ 
             
@@ -386,11 +383,9 @@ $(document).ready(function(){
     }
     
     function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left-2,
-          y: evt.clientY - rect.top-2 
-        };
+
+        return {x: evt.pageX, y: evt.pageY};
+        
 }
         
     function draw(e){
@@ -608,33 +603,26 @@ $(document).ready(function(){
    
     function fixWidth(){
         
-        var imageData = ctx.getImageData(0,0,width,height);
+        width = $(window).width();
+        height = $(window).height();
         
+        $(".cnvs").attr("width", width);        
+        $(".cnvs").attr("height", height);           
         
-            $(".cnvs").attr("width", $(window).width());        
-            $(".cnvs").attr("height", $(window).height());           
-        
-            width = $(window).width();
-            height = $(window).height();
-        
-       
-        
+
         //on resize all settings are cleared
         setDefaults();
 
-        
-       
-        ctx.putImageData(imageData,0,0);
-        
-        }
+    }
     
     fixWidth();
         
-    function floodFill(x,y,evt){       
-  
-    }
+    $(window).on('beforeunload', function(){
+        socket.close();
+    });
     
-       
+      
 }); 
+
 
 	

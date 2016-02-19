@@ -10,7 +10,7 @@ body{
   
   
     position: absolute;
-    top: 45;
+    top: 0;
     left: 0; 
     
    
@@ -144,6 +144,7 @@ body{
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: 2;
     margin-bottom: 5px;
     width: 100%;
     height: 40px;
