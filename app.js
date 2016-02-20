@@ -6,7 +6,7 @@ var port = app.get('port');
 var path = require('path');
 
 
-app.use( require( 'express' ).static( path.join( __dirname, 'public' ) ) );
+app.use(require('express').static(path.join(__dirname, 'public')));
 
 
 // routing
@@ -15,42 +15,42 @@ app.get('/', function (req, res) {
 });
 
 io.sockets.on('connection', function (socket) {
-    
-    socket.on('pencil',function(data){
-        socket.broadcast.emit("pencil",data);
-        
-    });
-    
-    socket.on('line',function(data){
-        socket.broadcast.emit('line',data);
-       
-    });
-    
-    socket.on('rectangle',function(data){
-        socket.broadcast.emit('rectangle',data);
-       
-    });
-    
-    socket.on('ellipse',function(data){
-        socket.broadcast.emit('ellipse',data);
-       
+
+    socket.on('pencil', function (data) {
+        socket.broadcast.emit("pencil", data);
+
     });
 
-    socket.on('text',function(data){
-        socket.broadcast.emit('text',data);
-       
+    socket.on('line', function (data) {
+        socket.broadcast.emit('line', data);
+
     });
-    
-    socket.on('eraser',function(data){
-        socket.broadcast.emit('eraser',data);
-       
+
+    socket.on('rectangle', function (data) {
+        socket.broadcast.emit('rectangle', data);
+
     });
-    
-    socket.on('clear',function(){
+
+    socket.on('ellipse', function (data) {
+        socket.broadcast.emit('ellipse', data);
+
+    });
+
+    socket.on('text', function (data) {
+        socket.broadcast.emit('text', data);
+
+    });
+
+    socket.on('eraser', function (data) {
+        socket.broadcast.emit('eraser', data);
+
+    });
+
+    socket.on('clear', function () {
         socket.broadcast.emit('clear');
-        
+
     });
-    
+
 });
 
 console.log("Listening to " + port);
