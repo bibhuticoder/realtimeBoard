@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title> Collaborative Whiteboard </title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/login.css" />
+    <!--    <script type="text/javascript" src="js/molecule.js"></script>-->
+</head>
+
+<body>
+
+    <div id="background"></div>
+    <p class="title">Collaborative Whiteboard</p>
+
+    <p class="subtitle">Share the whiteboard with your friends and increase your productivity</p>
+
+    <p class="subtitle">Create a new room or join an existing one</p>
+
+    <br>
+
+    <form method="post" action="/login">
+        <input type="text" placeholder="Username" name="username" />
+        <br>
+        <input type="text" placeholder="Roomname" name="roomname" />
+        <br>
+        <button type="submit" class="btn">Create or Join Room</button>
+    </form>
+
+    <button class="errorBox" style="visibility:<%=visibility%>">
+        <%if(msg){%>
+            <%=msg%>
+                <%}%>
+    </button>
+</body>
+
+</html>

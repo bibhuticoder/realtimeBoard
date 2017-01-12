@@ -1,9 +1,10 @@
 {
-	"name": "Collaborative Whiteboard",
-	"description": "WhiteBoard",
-	"version": "0.0.1",
-	"dependencies": {
-		"express": "",
-		"socket.io": ""
-	}
+    "name": "Collaborative Whiteboard",
+    "description": "WhiteBoard",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "",
+        "ejs": "^2.3.3",
+        "socket.io": ""
+    }
 }

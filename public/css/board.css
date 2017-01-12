@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: cursive;
+    text-align: center;
+    cursor: default;
+    /*  Make elements unselectable  */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.cnv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: crosshair;
+}
+
+#canvas {
+    z-index: 2;
+    background-color: white;
+}
+
+#layer {
+    z-index: 1;
+    background-color: transparent;
+}
+
+.seperatorHor {
+    width: 1px;
+    height: 90px;
+    background-color: dimgray;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.boardWidget {
+    position: absolute;
+    height: 85px;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    background-color: white;
+    box-shadow: -1px -1px 5px 0.5px #373737;
+    padding: 5px;
+}
+
+#currentColor {
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 5px;
+    background-color: black;
+    float: right;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+}
+
+.itemsContainer {
+    padding: 5px;
+    background-color: white;
+    float: left;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-family: monospace;
+    color: dimgray;
+}
+
+#colorContainer {
+    float: right !important;
+}
+
+.boardBtn {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.boardBtn img {
+    height: 15px;
+    width: 15px;
+}
+
+.boardBtn:hover {
+    color: black;
+}
+
+.boardBtnSelected {
+    color: black;
+    border-color: black;
+}
+
+.boardBtnSpecial {
+    color: saddlebrown;
+}
+
+#textControl {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    z-index: 3;
+    background-color: whitesmoke;
+    padding: 5px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+}
